@@ -1,0 +1,4 @@
+fastapi
+uvicorn[standard]
+PyYAML
+jinja2

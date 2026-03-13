@@ -1,0 +1,116 @@
+basics:
+  name: 胥梦荻
+  title: AI/全栈开发实习生
+  graduation: 2027届
+  wechat: "ADY-173"
+  phone: "17338770572"
+  email: "17338770572@163.com"
+  github: "https://github.com/lvy010"
+  school: "湖北工程学院"
+  major: "网络空间安全"
+  summary: >
+    具备 C++ 后端与工程化开发能力，长期维护技术站点与多个开源仓库。能够独立完成从需求拆解、
+    架构设计到功能落地与问题排障，关注可维护性、可扩展性和交付速度。
+  keywords:
+    - C/C++
+    - Linux
+    - 网络编程
+    - 高并发
+    - AI 工具链
+    - 工程化协作
+
+open_source_experience:
+  - name: lvyovo-wiki / X-Plore
+    role: 开源维护者
+    date: 2024.07 - 至今
+    highlights:
+      - 持续维护技术站点与知识工程仓库，系统沉淀 C/C++、Linux、数据库、AIoT 等实践内容
+      - 技术内容累计 756,000+ 阅读、12,000+ 收藏，形成稳定更新的内容生产和维护机制
+      - 参与 OpenVela 生态相关项目协作，熟悉 Issue 追踪、PR 协同与版本迭代流程
+    links:
+      - "https://github.com/lvy010/lvyovo-wiki"
+      - "https://github.com/lvy010/X-Plore"
+
+  - name: 其他开源实践
+    role: Contributor
+    date: 2024.01 - 至今
+    highlights:
+      - Algo-Atlas：算法学习与讲解项目，累计 100k+ 浏览（仓库口径）
+      - Issues-bot / GitHub-agent / Mermaid-validator：围绕自动化与 AI 工具链持续迭代
+      - cpp-sandbox / linux-lab：长期进行 C/C++、操作系统、网络方向的工程训练与复盘
+    links:
+      - "https://github.com/lvy010"
+
+project_experience:
+  - name: 分布式 JSON-RPC 服务框架（nano-Json-RPC）
+    role: 独立开发
+    date: 2025.02 - 2025.03
+    highlights:
+      - 从 0 到 1 设计并实现三层架构（抽象层 / 具象层 / 业务层）RPC 框架，支持协议扩展与业务模块解耦
+      - 设计 Dispatcher + Requester 核心机制，以请求 ID 维护响应映射，保障并发场景请求-响应一致性
+      - 实现服务注册发现、节点上下线通知与心跳检测，增强系统可观测性与异常恢复能力
+    tech_stack:
+      - C++
+      - JsonCpp
+      - Muduo
+      - 多线程
+      - TCP
+      - Pub/Sub
+    links:
+      - "https://github.com/lvy010/nano-Json-RPC"
+
+  - name: Boost 搜索引擎（boost-searcher）
+    role: 独立开发
+    date: 2024.10 - 2024.11
+    highlights:
+      - 完成检索系统全链路开发：文档清洗、分词统计、倒排索引构建、相关性排序、HTTP 查询服务
+      - 将非结构化网页文本转为可检索数据，输出 JSON 结果，形成端到端检索闭环
+      - 基于 TF-IDF 相关性思想完成排序策略，实现关键词搜索结果的可解释输出
+    tech_stack:
+      - C++
+      - STL
+      - Boost
+      - Cppjieba
+      - cpp-httplib
+      - JsonCpp
+    links:
+      - "https://github.com/lvy010/boost-searcher"
+
+  - name: 个人技术站点（lvyovo-wiki）
+    role: 独立开发 / 维护
+    date: 2024.07 - 至今
+    highlights:
+      - 基于 Next.js + TypeScript 构建博客与项目展示站点，支持内容发布、分类归档、分享卡片等模块
+      - 通过结构化内容配置与脚本化流程降低维护成本，提升持续更新效率
+      - 针对展示页交互做减法，沉淀出面向投递场景的静态简历方案
+    tech_stack:
+      - Next.js
+      - TypeScript
+      - React
+      - Node.js
+    links:
+      - "https://github.com/lvy010/lvyovo-wiki"
+
+skills:
+  - category: 语言与基础
+    items:
+      - C/C++（STL、现代 C++ 常用特性）
+      - Python
+      - TypeScript/JavaScript
+      - Shell
+  - category: 后端与网络
+    items:
+      - TCP/IP、HTTP/HTTPS、Socket、JSON-RPC
+      - 多线程并发
+      - 服务注册发现、接口序列化与通信链路设计
+  - category: 中间件与工具
+    items:
+      - JsonCpp、Muduo、Boost
+      - MySQL、Redis
+      - Git、Docker、YAML
+  - category: 工程能力
+    items:
+      - Linux 开发调试
+      - 问题定位与性能排查
+      - 文档化沉淀与知识复用
+      - 自动化脚本与基础测试意识

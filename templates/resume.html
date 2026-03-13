@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{{ basics.name }} - 简历</title>
+    <link rel="stylesheet" href="/static/style.css" />
+  </head>
+  <body>
+    <main class="page">
+      <header class="header">
+        <h1>{{ basics.name }}</h1>
+        <p class="subtitle">{{ basics.graduation }} | {{ basics.title }}</p>
+        <div class="contact">
+          <span>微信：{{ basics.wechat }}</span>
+          <span>电话：{{ basics.phone }}</span>
+          <span>学校：{{ basics.school }}</span>
+          <span>专业：{{ basics.major }}</span>
+          <span>邮箱：{{ basics.email }}</span>
+          <span>GitHub：<a href="{{ basics.github }}" target="_blank" rel="noreferrer">{{ basics.github }}</a></span>
+        </div>
+        <p class="summary">{{ basics.summary }}</p>
+        {% if basics.keywords %}
+        <div class="tags">
+          {% for kw in basics.keywords %}
+          <span class="tag">{{ kw }}</span>
+          {% endfor %}
+        </div>
+        {% endif %}
+      </header>
+
+      {% if education %}
+      <section>
+        <h2>教育背景</h2>
+        {% for edu in education %}
+        <article class="block">
+          <div class="row">
+            <h3>{{ edu.school }} · {{ edu.major }}</h3>
+            <span>{{ edu.date }}</span>
+          </div>
+          <p class="role">{{ edu.degree }}</p>
+          {% if edu.highlights %}
+          <ul>
+            {% for item in edu.highlights %}
+            <li>{{ item }}</li>
+            {% endfor %}
+          </ul>
+          {% endif %}
+        </article>
+        {% endfor %}
+      </section>
+      {% endif %}
+
+      <section>
+        <h2>开源经历</h2>
+        {% for exp in open_source_experience %}
+        <article class="block">
+          <div class="row">
+            <h3>{{ exp.name }}</h3>
+            <span>{{ exp.date }}</span>
+          </div>
+          <p class="role">{{ exp.role }}</p>
+          <ul>
+            {% for item in exp.highlights %}
+            <li>{{ item }}</li>
+            {% endfor %}
+          </ul>
+          {% if exp.links %}
+          <div class="links">
+            {% for link in exp.links %}
+            <a href="{{ link }}" target="_blank" rel="noreferrer">{{ link }}</a>
+            {% endfor %}
+          </div>
+          {% endif %}
+        </article>
+        {% endfor %}
+      </section>
+
+      <section>
+        <h2>项目经历</h2>
+        {% for proj in project_experience %}
+        <article class="block">
+          <div class="row">
+            <h3>{{ proj.name }}</h3>
+            <span>{{ proj.date }}</span>
+          </div>
+          <p class="role">{{ proj.role }}</p>
+          <ul>
+            {% for item in proj.highlights %}
+            <li>{{ item }}</li>
+            {% endfor %}
+          </ul>
+          {% if proj.tech_stack %}
+          <p class="stack">
+            <strong>技术栈：</strong>{{ proj.tech_stack | join(" / ") }}
+          </p>
+          {% endif %}
+          {% if proj.links %}
+          <div class="links">
+            {% for link in proj.links %}
+            <a href="{{ link }}" target="_blank" rel="noreferrer">{{ link }}</a>
+            {% endfor %}
+          </div>
+          {% endif %}
+        </article>
+        {% endfor %}
+      </section>
+
+      <section>
+        <h2>技术能力</h2>
+        <div class="skills">
+          {% for sk in skills %}
+          <article class="skill-card">
+            <h3>{{ sk["category"] }}</h3>
+            <ul>
+              {% for item in sk["items"] %}
+              <li>{{ item }}</li>
+              {% endfor %}
+            </ul>
+          </article>
+          {% endfor %}
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
