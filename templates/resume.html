@@ -52,6 +52,18 @@
       {% endif %}
 
       <section>
+        <h2>技术能力</h2>
+        <div class="skills-list">
+          {% for sk in skills %}
+          <article class="block skill-group">
+            <h3>{{ sk["category"] }}</h3>
+            <p class="skill-inline">{{ sk["items"] | join("、") }}</p>
+          </article>
+          {% endfor %}
+        </div>
+      </section>
+
+      <section>
         <h2>开源经历</h2>
         {% for exp in open_source_experience %}
         <article class="block">
@@ -104,22 +116,6 @@
           {% endif %}
         </article>
         {% endfor %}
-      </section>
-
-      <section>
-        <h2>技术能力</h2>
-        <div class="skills">
-          {% for sk in skills %}
-          <article class="skill-card">
-            <h3>{{ sk["category"] }}</h3>
-            <ul>
-              {% for item in sk["items"] %}
-              <li>{{ item }}</li>
-              {% endfor %}
-            </ul>
-          </article>
-          {% endfor %}
-        </div>
       </section>
     </main>
   </body>
