@@ -1,6 +1,8 @@
-# easy-cv
+# easyCV
 
 用 YAML 写简历，在线预览 / 编辑 / 导出 PDF。
+
+[示例简历 PDF](https://github.com/lvy010/X-Plore/blob/main/data/CV.pdf)
 
 克隆仓库 → 编辑 `resume.yaml` → 启动服务 → 浏览器打开即可预览和导出。
 
@@ -11,11 +13,15 @@ http://localhost:8010/resume    ← 简历预览（带「导出 PDF」按钮）
 http://localhost:8010/editor    ← 左侧 YAML 编辑 + 右侧实时预览
 ```
 
+![编辑器](./png/edit.png)
+
+![导出 PDF](./png/pdf.png)
+
 ## Quick Start
 
 ```bash
-git clone https://github.com/lvy010/easy-cv.git
-cd easy-cv
+git clone https://github.com/lvy010/easyCV.git
+cd easyCV
 
 python3 -m venv .venv
 source .venv/bin/activate
