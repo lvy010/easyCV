@@ -1,35 +1,85 @@
 # easy-cv
 
-A CV defined in YAML using a YAMLResume-like spec, with FastAPI API + 在线预览编辑器。
+用 YAML 写简历，在线预览 / 编辑 / 导出 PDF。
 
-## 功能
+克隆仓库 → 编辑 `resume.yaml` → 启动服务 → 浏览器打开即可预览和导出。
 
-- `resume.yaml`：简历数据源（可版本管理）
-- `GET /resume`：在线预览简历
-- `GET /editor`：左侧 YAML 编辑、右侧实时预览
-- `GET /api/resume`：获取 JSON 数据
-- `PUT /api/resume`：以 JSON 覆盖更新
-- `GET /api/resume/raw`：获取原始 YAML
-- `PUT /api/resume/raw`：保存原始 YAML（服务端校验 YAML 合法性）
+## Preview
 
-## 快速开始
+```
+http://localhost:8010/resume    ← 简历预览（带「导出 PDF」按钮）
+http://localhost:8010/editor    ← 左侧 YAML 编辑 + 右侧实时预览
+```
+
+## Quick Start
 
 ```bash
-cd /root/easy-cv
+git clone https://github.com/lvy010/easy-cv.git
+cd easy-cv
+
 python3 -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
+
 uvicorn app:app --reload --host 0.0.0.0 --port 8010
 ```
 
-打开：
+打开 [http://localhost:8010](http://localhost:8010) 即可。
 
-- 预览页: [http://127.0.0.1:8010/resume](http://127.0.0.1:8010/resume)
-- 编辑器: [http://127.0.0.1:8010/editor](http://127.0.0.1:8010/editor)
-- API 文档: [http://127.0.0.1:8010/docs](http://127.0.0.1:8010/docs)
+## How It Works
 
-## 后续可扩展（方便接 skill）
+```
+resume.yaml          ← 你的简历数据（唯一需要编辑的文件）
+templates/resume.html ← Jinja2 渲染模板
+static/style.css      ← 样式（蓝色主题，A4 排版，打印友好）
+app.py                ← FastAPI 服务
+```
 
-- 增加 `POST /api/resume/optimize`：接入你的 skill 或 LLM，对 YAML 局部改写
-- 多模板渲染（`/resume?theme=minimal`）
-- 一键导出 PDF（Playwright/WeasyPrint）
+### 编辑简历
+
+**方式 A**：直接编辑 `resume.yaml`，保存后刷新页面。
+
+**方式 B**：打开 `/editor`，在浏览器内编辑 YAML，点击保存，右侧实时预览。
+
+### 导出 PDF
+
+预览页顶部有「导出 PDF」按钮，点击后调用浏览器打印，选择"另存为 PDF"即可。
+
+> 建议使用 Chrome/Edge，打印时取消页眉页脚，边距选"无"，效果最佳。
+
+## YAML Structure
+
+```yaml
+basics:           # 姓名、岗位、联系方式
+education:        # 学习经历
+code:             # 代码链接（GitHub、作品集等）
+personal_docs:    # 个人文档/博客/专栏
+team_projects:    # 团队项目（公司、Hackathon 等）
+personal_projects: # 个人项目
+lab_tutorials:    # 实验教程
+```
+
+完整示例见 [`examples/lvy.yaml`](./examples/lvy.yaml)。
+
+## API
+
+| Method | Path | Description |
+|--------|------|-------------|
+| `GET`  | `/resume` | HTML 简历预览 |
+| `GET`  | `/editor` | YAML 编辑器 |
+| `GET`  | `/api/resume` | JSON 格式简历数据 |
+| `PUT`  | `/api/resume` | JSON 覆盖更新 |
+| `GET`  | `/api/resume/raw` | 获取原始 YAML |
+| `PUT`  | `/api/resume/raw` | 保存原始 YAML |
+| `GET`  | `/docs` | OpenAPI 文档 |
+
+## Docker
+
+```bash
+docker build -t easy-cv .
+docker run -p 8010:8010 easy-cv
+```
+
+## License
+
+MIT

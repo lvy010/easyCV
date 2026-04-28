@@ -52,15 +52,20 @@ def root() -> RedirectResponse:
 def resume_page(request: Request) -> HTMLResponse:
     data = _read_resume()
     return templates.TemplateResponse(
+        request,
         "resume.html",
-        {
-            "request": request,
+        context={
             "resume": data,
             "basics": data.get("basics", {}),
             "education": data.get("education", []),
+            "code": data.get("code", []),
+            "personal_docs": data.get("personal_docs"),
+            "team_projects": data.get("team_projects", []),
+            "personal_projects": data.get("personal_projects", []),
+            "lab_tutorials": data.get("lab_tutorials", []),
+            "skills": data.get("skills", []),
             "open_source_experience": data.get("open_source_experience", []),
             "project_experience": data.get("project_experience", []),
-            "skills": data.get("skills", []),
         },
     )
 
@@ -69,7 +74,7 @@ def resume_page(request: Request) -> HTMLResponse:
 def editor_page(request: Request) -> HTMLResponse:
     yaml_text = RESUME_FILE.read_text(encoding="utf-8") if RESUME_FILE.exists() else ""
     return templates.TemplateResponse(
-        "editor.html", {"request": request, "yaml_text": yaml_text}
+        request, "editor.html", context={"yaml_text": yaml_text}
     )
 
 

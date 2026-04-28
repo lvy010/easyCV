@@ -1,0 +1,131 @@
+basics:
+  name: Anon
+  position: "AGI实习生 | 随时到岗 | 可长期实习"
+  age: "20岁"
+  gender: "女"
+  phone: "0800-092-000"
+  email: "lvyovo010@163.com"
+
+education:
+  - date: "2023-09 ~ 2027-06"
+    school: 羽丘女子学园
+    major: 计算机
+  - date: "2023-08 ~ 2023-08"
+    school: 英国Culford School
+    major: 预科
+
+code:
+  - label: "GitHub"
+    url: "https://github.com/lvy010"
+  - label: "作品集"
+    url: "https://b23.tv/adNU4UH"
+
+personal_docs:
+  summary: "喜欢解决问题和看各种设计 | 快速学习并沉淀系统文档 | 自己理解后分享"
+  items:
+    - text: "我的262个github仓库整理"
+      url: "https://github.com/lvy010/X-Plore/blob/main/repo/github_repos_cn.md"
+    - text: "140w+浏览的个人技术专栏"
+      url: "https://lvyovo-wiki.tech/share"
+    - text: "我的项目整合"
+      url: "https://lvyovo-wiki.tech/projects"
+    - text: "如何科学的8个月写2000题Leetcode"
+      url: "https://github.com/lvy010/Algo-Atlas"
+    - text: "一千多篇文章整合"
+      url: "https://github.com/lvy010/X-Plore"
+    - text: "500h播客纪念&分享"
+      url: "https://lvyovo-wiki.tech/blog/podcast"
+    - text: "一个月回复1k条自媒体消息"
+      url: "https://xhslink.com/m/A0RmObjbu2e"
+    - text: "2025计算机学习分享"
+      url: "https://lvyovo-wiki.tech/blog/25sum"
+    - text: "2024 C++自学分享（C 语言、数据结构、算法、C++、Linux、Mysql、Redis 文档学习、Docker 云原生、Git、Qt）"
+      url: "https://lvynote.blog.csdn.net/article/details/145308270"
+
+team_projects:
+  - date: "2026-03 ~ 2026-04"
+    company: "Xiaohongshu - Hackathon"
+    role: "AGI开发"
+    name: "Jarvis — Proactive Multimodal Agent"
+    highlights:
+      - '设计并实现主动式 AI 感知系统，让 AI 从"被动问答"进化为"主动感知现实并自主行动"'
+      - 采用 Input / Brain / Output 三层架构，Reactor 调用同时完成多模态感知融合、意图推理与行动决策，低延迟
+      - 接入摄像头（OpenCV）、桌面截屏、讯飞 ASR 语音、浏览器历史四路信号，构建统一上下文
+      - 设计反馈回环机制，通过 preferences.json 持续记录用户行为，驱动偏好学习系统自动进化用户画像
+    tech_stack: "LLM Agent、Multimodal、Docker、OpenCV、ASR、FastAPI、WebSocket、React、TypeScript"
+
+  - date: "2025-12 ~ 2026-03"
+    company: "Web3 Infra - 后端重构"
+    role: "Rust开发"
+    name: ""
+    description: "参与 Mega 分布式构建平台 的 Orion 构建服务后端开发，进行 Buck2 构建系统的日志管理与 API 重构。"
+    url: "https://gitmega.dev/"
+    highlights:
+      - "设计并实现多目标日志隔离架构，新增 targets 数据模型及完整生命周期管理"
+      - "将分散的日志数据模型统一迁移至 api-model crate，标准化跨模块 API 边界"
+      - "扩展 REST API，支持按构建 ID 查询历史日志及任务目标状态汇总，并通过 utoipa 自动生成 Swagger 文档。"
+    tech_stack: "Axum、Sea-ORM、PostgreSQL、RESTful API、utoipa/OpenAPI、Buck2、模块化架构重构"
+
+  - date: "2025-06 ~ 2025-09"
+    company: "XiaoMi openvela - LVGL"
+    role: "C开发"
+    name: ""
+    description: "参与 XiaoMi Vela 嵌入式操作系统的应用开发"
+    url: "https://github.com/lvy010/Vela-Audio"
+    highlights:
+      - "对嵌入式资源受限环境进行内存与渲染性能调优，优化 LVGL 界面刷新效率，降低系统资源占用"
+      - "基于 LVGL 图形库独立完成音乐播放器项目的开发与集成"
+      - "负责项目从零搭建、编译路径配置与修复、代码格式规范化"
+      - "同步跟进组内版本更新和维护中英技术文档"
+    tech_stack: "LVGL图形学、NuttX/Vela RTOS、嵌入式开发、CMake"
+
+personal_projects:
+  - date: "2026-02 ~ 2026-03"
+    name: "NanoAIOS"
+    role: "Rust开发"
+    url: "https://github.com/lvy010/nanoaios"
+    description: "面向 Agent 时代的极简 AIOS 内核实现，定位为\"AIOS 的 Linux\"，采用 Kernel/Runtime/Provider 三层分离架构，提供推理入口、Session 记忆管理、多 Provider 抽象等系统级 AI 能力。"
+    tech_stack: "Cargo、CLI、Session 内存管理、多 Provider 抽象、HTTP 服务"
+
+  - date: "2026-01 ~ 2026-02"
+    name: "Next AI Slide"
+    role: "JS开发"
+    url: "https://github.com/lvy010/Next-AI-Slide"
+    description: "AI 驱动的 Slidev Markdown 生成器，用户输入自然语言即可自动生成演示文稿，支持复制与下载。基于 Next.js 构建，集成 OpenAI API 实现智能内容生成的多模态Agent"
+    tech_stack: "Next.js、TypeScript、React、OpenAI API、Slidev、Tailwind CSS"
+
+  - date: "2025-12 ~ 2026-01"
+    name: "GitHub Agent"
+    role: "Python开发"
+    url: "https://github.com/lvy010/github-agent"
+    description: "自主式 GitHub 研究智能体，可对任意 GitHub 用户或仓库进行结构化分析。支持任务自动分解、数据采集、完整性自校验，并输出结论与可执行建议，具备多轮对话上下文保持能力。"
+    tech_stack: "OpenAI API、REST API、Typer、Rich、Bun、React、Ink、Tavily API、多智能体架构"
+
+  - date: "2025-02 ~ 2025-03"
+    name: "分布式 RPC 服务框架"
+    role: "C++开发"
+    url: "https://github.com/lvy010/nano-Json-RPC"
+    description: "设计实现轻量级 RPC 框架，采用三层架构，通过 LV 协议解决消息边界问题，支持 JSON 序列化实现跨语言通信，提供服务动态注册、发现及负载均衡能力。"
+    tech_stack: "Jsoncpp、Muduo、TCP 网络通信、发布订阅模式、分布式协调"
+
+  - date: "2024-10 ~ 2024-11"
+    name: "Boost 搜索引擎"
+    role: "C++开发"
+    url: "https://github.com/lvy010/boost-searcher"
+    description: "基于 Boost 在线文档的站内搜索引擎，为用户提供快速查询服务。"
+    tech_stack: "STL、准标准库 Boost、Jsoncpp、cppjieba、cpp-httplib"
+
+lab_tutorials:
+  - date: "2024-09 ~ 2026-02"
+    name: "AI Exploration"
+    role: "作者"
+    url: "https://github.com/lvy010/AI-exploration"
+    description: "含微信 AI Bot、AI 图像故事生成、CUDA/CUTLASS 高性能矩阵运算、E3NN 等变神经网络、Pyro 概率编程、RAG 评估等方向。"
+    tech_stack: "Python、PyTorch、CUDA、CUTLASS、E3NN、Pyro、OpenAI API、Stable Diffusion"
+
+  - date: "2023-09 ~ 2024-09"
+    name: "Linux Lab"
+    role: "作者"
+    url: "https://github.com/lvy010/linux-lab"
+    description: "操作系统学习与实验聚合仓库，含 CSAPP/OSTEP 笔记与配套代码（虚拟化、并发、持久化）、Linux 内核学习记录及系统编程实践。"
+    tech_stack: "C/C++、Shell、Makefile、CMake、Linux 内核、系统编程"

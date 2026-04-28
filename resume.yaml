@@ -1,141 +1,53 @@
 basics:
-  name: 胥梦荻
-  title: AI 应用 / 全栈开发实习生
-  graduation: 27届
-  wechat: "ADY-173"
-  phone: "17338770572"
-  email: "17338770572@163.com"
-  github: "https://github.com/lvy010"
-  school: "湖北工程学院"
-  major: "网络空间安全"
-  summary: >
-    聚焦 AI 应用落地与工程化交付，具备 C++ 后端、Python 脚本与 Web 全栈实践能力。长期维护技术站点与
-    多个开源仓库，能够独立完成从需求拆解、模型能力接入、服务接口封装到部署排障的全流程开发。
-  keywords:
-    - LLM 应用开发
-    - AI Agent
-    - RAG / 检索增强
-    - Prompt 工程
-    - C++ / Python
-    - Linux 工程化
-    - AI 工具链
-    - 全栈交付
+  name: Your Name
+  position: "目标岗位 | 随时到岗"
+  age: "22岁"
+  gender: ""
+  phone: "138-0000-0000"
+  email: "you@example.com"
 
-open_source_experience:
-  - name: lvyovo-wiki / X-Plore
-    role: 开源维护者
-    date: 2024.07 - 至今
+education:
+  - date: "2021-09 ~ 2025-06"
+    school: 11大学
+    major: 计算机科学与技术
+  - date: "2018-09 ~ 2021-06"
+    school: XX中学
+    major: 理科
+
+code:
+  - label: "GitHub"
+    url: "https://github.com/yourname"
+  - label: "Portfolio"
+    url: "https://yoursite.com"
+
+personal_docs:
+  summary: "用一句话介绍自己的特点"
+  items:
+    - text: "项目或作品描述"
+      url: "https://github.com/yourname/project"
+
+team_projects:
+  - date: "2024-06 ~ 2024-09"
+    company: "公司/团队名称"
+    role: "开发"
+    name: "项目名称"
     highlights:
-      - 持续维护技术站点与知识工程仓库，沉淀 AI 应用开发、RAG、Agent 工作流与 C/C++ 工程实践内容
-      - 技术内容累计 756,000+ 阅读、12,000+ 收藏，持续输出 AI 主题文章与实战案例
-      - 在开源协作中沉淀 Prompt 设计、工具调用链路、Issue 追踪与 PR 协同的工程经验
-    links:
-      - "https://github.com/lvy010/lvyovo-wiki"
-      - "https://github.com/lvy010/X-Plore"
+      - 你做了什么、用了什么技术、达成了什么效果
+      - 第二条描述
+    tech_stack: "Python、FastAPI、React"
 
-  - name: 其他开源实践
-    role: Contributor
-    date: 2024.01 - 至今
-    highlights:
-      - Algo-Atlas：算法学习与讲解项目，累计 100k+ 浏览（仓库口径），用于强化 AI 基础算法理解
-      - Issues-bot / GitHub-agent / Mermaid-validator：围绕 Agent 自动化、LLM 任务编排与 AI 工具链持续迭代
-      - cpp-sandbox / linux-lab：持续进行系统与网络工程训练，为 AI 服务端性能优化提供基础
-    links:
-      - "https://github.com/lvy010"
+personal_projects:
+  - date: "2024-01 ~ 2024-03"
+    name: "个人项目名"
+    role: "独立开发"
+    url: "https://github.com/yourname/project"
+    description: "一句话描述项目。"
+    tech_stack: "TypeScript、Next.js"
 
-project_experience:
-  - name: GitHub Agent 自动化助手（github-agent）
-    role: 独立开发
-    date: 2025.01 - 至今
-    highlights:
-      - 构建面向 GitHub 工作流的 AI Agent，支持仓库信息读取、任务分解、自动化处理与结果输出
-      - 设计 Prompt 模板与工具调用链路，提升多步骤任务执行稳定性与可复用性
-      - 将脚本自动化与 LLM 能力结合，减少重复性仓库维护工作
-    tech_stack:
-      - Python
-      - LLM API
-      - Agent Workflow
-      - GitHub API
-      - YAML/JSON
-    links:
-      - "https://github.com/lvy010"
-
-  - name: 分布式 JSON-RPC 服务框架（nano-Json-RPC）
-    role: 独立开发
-    date: 2025.02 - 2025.03
-    highlights:
-      - 从 0 到 1 设计并实现三层架构（抽象层 / 具象层 / 业务层）RPC 框架，支持协议扩展与业务模块解耦
-      - 设计 Dispatcher + Requester 核心机制，以请求 ID 维护响应映射，保障并发场景请求-响应一致性
-      - 实现服务注册发现、节点上下线通知与心跳检测，增强系统可观测性与异常恢复能力
-      - 为后续 AI 推理服务与多模型网关接入预留统一通信与服务治理能力
-    tech_stack:
-      - C++
-      - JsonCpp
-      - Muduo
-      - 多线程
-      - TCP
-      - Pub/Sub
-    links:
-      - "https://github.com/lvy010/nano-Json-RPC"
-
-  - name: Boost 搜索引擎（boost-searcher）
-    role: 独立开发
-    date: 2024.10 - 2024.11
-    highlights:
-      - 完成检索系统全链路开发：文档清洗、分词统计、倒排索引构建、相关性排序、HTTP 查询服务
-      - 将非结构化网页文本转为可检索数据，输出 JSON 结果，形成端到端检索闭环
-      - 基于 TF-IDF 相关性思想完成排序策略，作为 RAG 检索层的技术基础
-    tech_stack:
-      - C++
-      - STL
-      - Boost
-      - Cppjieba
-      - cpp-httplib
-      - JsonCpp
-    links:
-      - "https://github.com/lvy010/boost-searcher"
-
-  - name: 个人技术站点（lvyovo-wiki）
-    role: 独立开发 / 维护
-    date: 2024.07 - 至今
-    highlights:
-      - 基于 Next.js + TypeScript 构建博客与项目展示站点，支持 AI 主题内容发布、归档与展示
-      - 通过结构化内容配置与脚本化流程降低维护成本，提升 AI 项目案例更新效率
-      - 针对展示页交互做减法，沉淀出面向投递场景的静态 AI 导向简历方案
-    tech_stack:
-      - Next.js
-      - TypeScript
-      - React
-      - Node.js
-    links:
-      - "https://github.com/lvy010/lvyovo-wiki"
-
-skills:
-  - category: 语言与基础
-    items:
-      - C/C++（STL、现代 C++ 常用特性）
-      - Python
-      - TypeScript/JavaScript
-      - Shell
-  - category: AI 能力
-    items:
-      - LLM 应用开发（Prompt 设计、上下文组织、结果评估）
-      - Agent 工作流设计（工具调用、任务拆解、自动化执行）
-      - RAG 基础（文本清洗、索引构建、检索与排序）
-      - AI 工具链集成与调试（API 接入、配置管理、日志排查）
-  - category: 后端与网络
-    items:
-      - TCP/IP、HTTP/HTTPS、Socket、JSON-RPC
-      - 多线程并发
-      - 服务注册发现、接口序列化与通信链路设计
-  - category: 中间件与工具
-    items:
-      - JsonCpp、Muduo、Boost
-      - MySQL、Redis
-      - Git、Docker、YAML
-  - category: 工程能力
-    items:
-      - Linux 开发调试
-      - 问题定位与性能排查
-      - 文档化沉淀与知识复用
-      - 自动化脚本与基础测试意识
+lab_tutorials:
+  - date: "2023-09 ~ 2024-06"
+    name: "实验/教程名"
+    role: "作者"
+    url: "https://github.com/yourname/lab"
+    description: "实验或教程的简要描述。"
+    tech_stack: "C/C++、Linux"

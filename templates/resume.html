@@ -7,116 +7,157 @@
     <link rel="stylesheet" href="/static/style.css" />
   </head>
   <body>
+    <div class="print-bar no-print">
+      <button onclick="window.print()">导出 PDF</button>
+      <a href="/editor">编辑 YAML</a>
+    </div>
+
     <main class="page">
+
       <header class="header">
-        <h1>{{ basics.name }}</h1>
-        <p class="subtitle">{{ basics.graduation }} | {{ basics.title }}</p>
-        <div class="contact">
-          <span>微信：{{ basics.wechat }}</span>
-          <span>电话：{{ basics.phone }}</span>
-          <span>学校：{{ basics.school }}</span>
-          <span>专业：{{ basics.major }}</span>
-          <span>邮箱：{{ basics.email }}</span>
-          <span>GitHub：<a href="{{ basics.github }}" target="_blank" rel="noreferrer">{{ basics.github }}</a></span>
+        <div class="header-main">
+          <div class="header-left">
+            <h1>{{ basics.name }}</h1>
+            <p class="meta">求职岗位：{{ basics.position }}</p>
+            <p class="meta">{{ basics.age }} | {{ basics.gender }}</p>
+            <p class="meta">Telephone：{{ basics.phone }}  |  Email：{{ basics.email }}</p>
+          </div>
         </div>
-        <p class="summary">{{ basics.summary }}</p>
-        {% if basics.keywords %}
-        <div class="tags">
-          {% for kw in basics.keywords %}
-          <span class="tag">{{ kw }}</span>
-          {% endfor %}
-        </div>
-        {% endif %}
       </header>
 
       {% if education %}
       <section>
-        <h2>教育背景</h2>
-        {% for edu in education %}
+        <h2>学习经历</h2>
+        <table class="edu-table">
+          {% for edu in education %}
+          <tr>
+            <td class="col-date">{{ edu.date }}</td>
+            <td class="col-center"><strong>{{ edu.school }}</strong></td>
+            <td class="col-right">{{ edu.major }}</td>
+          </tr>
+          {% endfor %}
+        </table>
+      </section>
+      {% endif %}
+
+      {% if code %}
+      <section>
+        <h2>代码</h2>
+        <div class="code-links">
+          {% for c in code %}
+          <p>{{ c.label }}：<a href="{{ c.url }}" target="_blank" rel="noreferrer">{{ c.url }}</a></p>
+          {% endfor %}
+        </div>
+      </section>
+      {% endif %}
+
+      {% if personal_docs %}
+      <section>
+        <h2>个人文档</h2>
+        <p class="docs-summary">{{ personal_docs["summary"] }}</p>
+        <ul>
+          {% for item in personal_docs["items"] %}
+          <li>{{ item["text"] }} — <a href="{{ item["url"] }}" target="_blank" rel="noreferrer">{{ item["url"] }}</a></li>
+          {% endfor %}
+        </ul>
+      </section>
+      {% endif %}
+
+      {% if team_projects %}
+      <section>
+        <h2>团队项目</h2>
+        {% for proj in team_projects %}
         <article class="block">
-          <div class="row">
-            <h3>{{ edu.school }} · {{ edu.major }}</h3>
-            <span>{{ edu.date }}</span>
+          <div class="proj-row">
+            <span class="proj-date">{{ proj.date }}</span>
+            <span class="proj-company"><strong>{{ proj.company }}</strong></span>
+            <span class="proj-role">{{ proj.role }}</span>
           </div>
-          <p class="role">{{ edu.degree }}</p>
-          {% if edu.highlights %}
+          {% if proj.name %}
+          <p class="proj-title">
+            {% if proj.url %}<a href="{{ proj.url }}" target="_blank" rel="noreferrer">{{ proj.name }}</a>{% else %}{{ proj.name }}{% endif %}
+          </p>
+          {% endif %}
+          {% if proj.description %}
+          <p class="proj-desc">
+            {% if proj.url and not proj.name %}<a href="{{ proj.url }}" target="_blank" rel="noreferrer">{{ proj.description }}</a>{% else %}{{ proj.description }}{% endif %}
+          </p>
+          {% endif %}
+          {% if proj.highlights %}
           <ul>
-            {% for item in edu.highlights %}
-            <li>{{ item }}</li>
+            {% for h in proj.highlights %}
+            <li>{{ h }}</li>
             {% endfor %}
           </ul>
+          {% endif %}
+          {% if proj.tech_stack %}
+          <p class="tech-stack"><strong>技术栈：</strong>{{ proj.tech_stack }}</p>
           {% endif %}
         </article>
         {% endfor %}
       </section>
       {% endif %}
 
+      {% if personal_projects %}
       <section>
-        <h2>技术能力</h2>
-        <div class="skills-list">
-          {% for sk in skills %}
-          <article class="block skill-group">
-            <h3>{{ sk["category"] }}</h3>
-            <p class="skill-inline">{{ sk["items"] | join("、") }}</p>
-          </article>
-          {% endfor %}
-        </div>
-      </section>
-
-      <section>
-        <h2>开源经历</h2>
-        {% for exp in open_source_experience %}
+        <h2>个人项目</h2>
+        {% for proj in personal_projects %}
         <article class="block">
-          <div class="row">
-            <h3>{{ exp.name }}</h3>
-            <span>{{ exp.date }}</span>
+          <div class="proj-row">
+            <span class="proj-date">{{ proj.date }}</span>
+            <span class="proj-company">
+              <strong>{% if proj.url %}<a href="{{ proj.url }}" target="_blank" rel="noreferrer">{{ proj.name }}</a>{% else %}{{ proj.name }}{% endif %}</strong>
+            </span>
+            <span class="proj-role">{{ proj.role }}</span>
           </div>
-          <p class="role">{{ exp.role }}</p>
-          <ul>
-            {% for item in exp.highlights %}
-            <li>{{ item }}</li>
-            {% endfor %}
-          </ul>
-          {% if exp.links %}
-          <div class="links">
-            {% for link in exp.links %}
-            <a href="{{ link }}" target="_blank" rel="noreferrer">{{ link }}</a>
-            {% endfor %}
-          </div>
+          {% if proj.description %}
+          <p class="proj-desc">{{ proj.description }}</p>
           {% endif %}
-        </article>
-        {% endfor %}
-      </section>
-
-      <section>
-        <h2>项目经历</h2>
-        {% for proj in project_experience %}
-        <article class="block">
-          <div class="row">
-            <h3>{{ proj.name }}</h3>
-            <span>{{ proj.date }}</span>
-          </div>
-          <p class="role">{{ proj.role }}</p>
+          {% if proj.highlights %}
           <ul>
-            {% for item in proj.highlights %}
-            <li>{{ item }}</li>
+            {% for h in proj.highlights %}
+            <li>{{ h }}</li>
             {% endfor %}
           </ul>
+          {% endif %}
           {% if proj.tech_stack %}
-          <p class="stack">
-            <strong>技术栈：</strong>{{ proj.tech_stack | join(" / ") }}
-          </p>
-          {% endif %}
-          {% if proj.links %}
-          <div class="links">
-            {% for link in proj.links %}
-            <a href="{{ link }}" target="_blank" rel="noreferrer">{{ link }}</a>
-            {% endfor %}
-          </div>
+          <p class="tech-stack"><strong>技术栈：</strong>{{ proj.tech_stack }}</p>
           {% endif %}
         </article>
         {% endfor %}
       </section>
+      {% endif %}
+
+      {% if lab_tutorials %}
+      <section>
+        <h2>实验教程</h2>
+        {% for proj in lab_tutorials %}
+        <article class="block">
+          <div class="proj-row">
+            <span class="proj-date">{{ proj.date }}</span>
+            <span class="proj-company">
+              <strong>{% if proj.url %}<a href="{{ proj.url }}" target="_blank" rel="noreferrer">{{ proj.name }}</a>{% else %}{{ proj.name }}{% endif %}</strong>
+            </span>
+            <span class="proj-role">{{ proj.role }}</span>
+          </div>
+          {% if proj.description %}
+          <p class="proj-desc">{{ proj.description }}</p>
+          {% endif %}
+          {% if proj.highlights %}
+          <ul>
+            {% for h in proj.highlights %}
+            <li>{{ h }}</li>
+            {% endfor %}
+          </ul>
+          {% endif %}
+          {% if proj.tech_stack %}
+          <p class="tech-stack"><strong>技术栈：</strong>{{ proj.tech_stack }}</p>
+          {% endif %}
+        </article>
+        {% endfor %}
+      </section>
+      {% endif %}
+
     </main>
   </body>
 </html>
