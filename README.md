@@ -1,6 +1,6 @@
 # easyCV
 
-用 YAML 写简历，在线预览 / 编辑 / 导出 PDF。
+一个 Yaml 文件定义所有内容，实时预览，在线编辑，可一键导出 PDF，不用装任何软件，可丝滑接入各种skill
 
 [示例简历 PDF](https://github.com/lvy010/X-Plore/blob/main/data/CV.pdf)
 
@@ -85,6 +85,10 @@ lab_tutorials:    # 实验教程
 docker build -t easy-cv .
 docker run -p 8010:8010 easy-cv
 ```
+
+Acknowledgements
+https://github.com/hijiangtao/resume
+https://github.com/yamlresume/yamlresume
 
 ## License
 
