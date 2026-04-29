@@ -87,8 +87,8 @@ docker run -p 8010:8010 easy-cv
 ```
 
 Acknowledgements
-https://github.com/hijiangtao/resume
-https://github.com/yamlresume/yamlresume
+- https://github.com/hijiangtao/resume
+- https://github.com/yamlresume/yamlresume
 
 ## License
 
