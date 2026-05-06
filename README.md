@@ -18,13 +18,25 @@ http://localhost:8010/editor    ← 左侧 YAML 编辑 + 右侧实时预览
 ![导出 PDF](./png/pdf.png)
 
 ## Quick Start
-
+如果你是linux
 ```bash
 git clone https://github.com/lvy010/easyCV.git
 cd easyCV
 
 python3 -m venv .venv
 source .venv/bin/activate
+pip install -r requirements.txt
+
+uvicorn app:app --reload --host 0.0.0.0 --port 8010
+```
+
+如果你是windows
+```bash
+git clone https://github.com/lvy010/easyCV.git
+cd easyCV
+
+python3 -m venv .venv
+$ source .venv/Scripts/activate
 pip install -r requirements.txt
 
 uvicorn app:app --reload --host 0.0.0.0 --port 8010
