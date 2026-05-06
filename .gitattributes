@@ -1,2 +1,3 @@
 *.html linguist-detectable=false
+*.json linguist-detectable=false
 *.css linguist-detectable=false
