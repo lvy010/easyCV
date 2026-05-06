@@ -29,14 +29,14 @@
       const yamlInput = document.getElementById("yamlInput");
       const statusText = document.getElementById("status");
       const previewFrame = document.getElementById("previewFrame");
-      const AUTO_REFRESH_MS = 3000;
+      const AUTO_REFRESH_MS = 0;
 
       function refreshPreview() {
         previewFrame.src = "/resume?t=" + Date.now();
       }
 
       statusText.textContent = "已开启自动预览刷新（每 3 秒）";
-      setInterval(refreshPreview, AUTO_REFRESH_MS);
+      // setInterval(refreshPreview, AUTO_REFRESH_MS);
 
       saveBtn.addEventListener("click", async () => {
         statusText.textContent = "保存中...";
@@ -48,7 +48,7 @@
           });
           const data = await resp.json();
           if (!resp.ok) throw new Error(data.detail || "保存失败");
-          statusText.textContent = "保存成功，预览已刷新（自动刷新仍开启）。";
+          statusText.textContent = "保存成功，预览已刷新（自动刷新已关闭，开启请取消注释）。";//这里是保存后可预览
           refreshPreview();
         } catch (err) {
           statusText.textContent = "保存失败：" + err.message;
