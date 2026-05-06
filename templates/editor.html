@@ -29,7 +29,7 @@
       const yamlInput = document.getElementById("yamlInput");
       const statusText = document.getElementById("status");
       const previewFrame = document.getElementById("previewFrame");
-      const AUTO_REFRESH_MS = 0;
+      // const AUTO_REFRESH_MS = 3000;//自动刷新，已注释
 
       function refreshPreview() {
         previewFrame.src = "/resume?t=" + Date.now();
@@ -37,7 +37,7 @@
 
       statusText.textContent = "已开启自动预览刷新（每 3 秒）";
       // setInterval(refreshPreview, AUTO_REFRESH_MS);
-
+      // 1. 保存按钮的点击事件（fetch 异步请求，用了 try-catch）
       saveBtn.addEventListener("click", async () => {
         statusText.textContent = "保存中...";
         try {
@@ -52,6 +52,15 @@
           refreshPreview();
         } catch (err) {
           statusText.textContent = "保存失败：" + err.message;
+        }
+      });
+
+      // 2. 全局键盘监听（ctrl+s同时按下会保存当前页面）
+      document.addEventListener('keydown', function(e) {
+        // 拦截 Ctrl+S (Windows) 或 Cmd+S (Mac)
+        if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 's') {
+          e.preventDefault(); // 阻止浏览器默认保存网页的行为
+          saveBtn.click();    // 触发上面写好的保存按钮点击事件
         }
       });
     </script>
