@@ -1,14 +1,14 @@
 basics:
   name: Your Name
   position: "目标岗位 | 随时到岗"
-  age: "22岁"
+  age: "24岁"
   gender: ""
-  phone: "138-0000-0000"
+  phone: "18"
   email: "you@example.com"
 
 education:
   - date: "2021-09 ~ 2025-06"
-    school: XX大学
+    school: 大学
     major: 计算机科学与技术
   - date: "2018-09 ~ 2021-06"
     school: XX中学
